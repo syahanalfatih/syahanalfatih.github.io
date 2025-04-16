@@ -30,7 +30,7 @@ title: "🚀 Panduan Lengkap Instalasi Ruby, Jekyll & GitHub Pages"
    g++ -v
    make -v
    ```
-   ika belum tersedia, install melalui:
+   Jika belum tersedia, install melalui:
 
 🟦 MinGW
 
