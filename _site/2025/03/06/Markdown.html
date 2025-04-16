@@ -1,0 +1,263 @@
+<blockquote>
+  <p>📄 <strong>Markdown</strong> adalah bahasa markup ringan yang dirancang agar mudah dibaca, mudah ditulis, dan mudah dikonversi ke HTML.<br />
+📅 <em>Diperkenalkan oleh John Gruber &amp; Aaron Swartz pada tahun 2004.</em></p>
+</blockquote>
+
+<hr />
+
+<h1 id="-panduan-lengkap-markdown">🚀 <strong>Panduan Lengkap Markdown</strong></h1>
+
+<p>Panduan ini mencakup semua yang perlu kamu tahu untuk mulai menulis dengan Markdown — dari sintaks dasar hingga tips profesional!</p>
+
+<hr />
+
+<h2 id="-1-sintaks-dasar-markdown">🔧 <strong>1. Sintaks Dasar Markdown</strong></h2>
+
+<h3 id="-heading-judul">📌 Heading (Judul)</h3>
+<p>Gunakan <code class="language-plaintext highlighter-rouge">#</code> untuk membuat heading dari level 1 sampai 6:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Heading 1</span>
+<span class="gu">## Heading 2</span>
+<span class="gu">### Heading 3</span>
+<span class="gu">#### Heading 4</span>
+<span class="gu">##### Heading 5</span>
+<span class="gu">###### Heading 6</span>
+</code></pre></div></div>
+
+<p>Hasil:</p>
+
+<p>Heading 1</p>
+
+<p>Heading 2</p>
+
+<p>Heading 3</p>
+
+<p>Heading 4</p>
+
+<p>Heading 5</p>
+
+<p>Heading 6</p>
+
+<hr />
+
+<h3 id="-2-teks-tebal-miring-dan-dicoret">💬 2. Teks Tebal, Miring, dan Dicoret</h3>
+<ul>
+  <li><strong>Tebal</strong>    =&gt;  <strong>Tebal</strong></li>
+  <li><em>Miring</em>    =&gt;  <em>Miring</em></li>
+  <li><del>Dicoret</del> =&gt;  <del>Dicoret</del></li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Teks Tebal**</span> atau __Teks Tebal__
+<span class="ge">*Teks Miring*</span> atau _Teks Miring_
+~~Teks Dicoret~~
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<p><strong>Teks Tebal</strong><br />
+<em>Teks Miring</em><br />
+<del>Teks Dicoret</del></p>
+
+<hr />
+
+<p>📋 Daftar (List)
+🔹 Unordered List
+markdown
+Copy
+Edit</p>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+      <li>Sub-item</li>
+    </ul>
+  </li>
+  <li>Item 3
+🔸 Ordered List
+markdown
+Copy
+Edit
+    <ol>
+      <li>Langkah pertama</li>
+      <li>Langkah kedua</li>
+      <li>Langkah ketiga</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<p>🔗 Tautan
+markdown
+Copy
+Edit
+<a href="https://www.openai.com">OpenAI</a>
+Hasil:
+OpenAI</p>
+
+<hr />
+
+<h3 id="5-gambar">5. <strong>Gambar</strong></h3>
+<p>Gunakan format <code class="language-plaintext highlighter-rouge">![teks alternatif](URL)</code> untuk menyisipkan gambar:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">Markdown Logo</span><span class="p">](</span><span class="sx">https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong><br />
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" alt="Markdown Logo" /></p>
+
+<hr />
+
+<h3 id="6-kode-inline-dan-blok">6. <strong>Kode (Inline dan Blok)</strong></h3>
+<ul>
+  <li><strong>Kode inline</strong>: Gunakan <code class="language-plaintext highlighter-rouge">`</code> di awal dan akhir teks</li>
+  <li><strong>Blok kode</strong>: Gunakan tiga backtick (```) di awal dan akhir blok kode. Bisa ditentukan bahasa pemrograman untuk highlighting.</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kode inline: <span class="sb">`print("Hello, world!")`</span>
+
+Blok kode:
+<span class="p">```</span><span class="nl">python
+</span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello World</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+**Hasil:**
+
+Kode inline: `print("Hello, world!")`
+
+Blok kode:
+```python
+def hello():
+    print("Hello, world!")
+</code></pre></div></div>
+
+<hr />
+
+<p>📌 Kutipan (Blockquote)
+markdown
+Copy
+Edit</p>
+<blockquote>
+  <p>Ini kutipan utama.</p>
+  <blockquote>
+    <p>Ini kutipan bersarang.
+Ini kutipan utama</p>
+  </blockquote>
+</blockquote>
+
+<p>Ini kutipan bersarang</p>
+
+<hr />
+
+<h3 id="8-garis-pemisah-horizontal-line">8. <strong>Garis Pemisah (Horizontal Line)</strong></h3>
+<p>Gunakan <code class="language-plaintext highlighter-rouge">---</code>, <code class="language-plaintext highlighter-rouge">***</code>, atau <code class="language-plaintext highlighter-rouge">___</code> untuk membuat garis pemisah:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">---</span>
+<span class="p">***</span>
+<span class="ge">__</span>_
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<hr />
+
+<hr />
+
+<h3 id="9-tabel">9. <strong>Tabel</strong></h3>
+<p>Gunakan garis <code class="language-plaintext highlighter-rouge">|</code> untuk membuat tabel:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Nama | Umur | Kota     |
+|------|------|----------|
+| Ana  | 22   | Jakarta  |
+| Budi | 24   | Bandung  |
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Umur</th>
+      <th>Kota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ana</td>
+      <td>22</td>
+      <td>Jakarta</td>
+    </tr>
+    <tr>
+      <td>Budi</td>
+      <td>24</td>
+      <td>Bandung</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-contoh-penggunaan-markdown">🎯 Contoh Penggunaan Markdown</h2>
+<ol>
+  <li><strong>Dokumentasi Kode</strong> – Digunakan di GitHub dan GitLab untuk README.md</li>
+  <li><strong>Catatan</strong> – Digunakan untuk mencatat di aplikasi seperti Obsidian atau Notion</li>
+  <li><strong>Blog</strong> – Beberapa platform blogging mendukung Markdown</li>
+  <li><strong>Presentasi</strong> – Alat seperti Marp atau Deckset mendukung Markdown</li>
+</ol>
+
+<hr />
+
+<h2 id="-keunggulan-markdown">🚀 Keunggulan Markdown</h2>
+<p>🔹 Mudah dibaca</p>
+
+<p>🔹 Ringan &amp; cepat</p>
+
+<p>🔹 Didukung banyak platform (GitHub, VSCode, Jupyter, dll)</p>
+
+<hr />
+
+<h2 id="️-keterbatasan-markdown">⚠️ Keterbatasan Markdown</h2>
+<p>❌ Tidak bisa membuat layout kompleks</p>
+
+<p>❌ Tidak cocok untuk styling visual canggih seperti CSS</p>
+
+<p>❌ Tidak semua renderer dukung fitur penuh</p>
+
+<hr />
+
+<h2 id="-varian-markdown">🔄 Varian Markdown</h2>
+
+<p>Varian	Keterangan</p>
+
+<p>GFM	GitHub Flavored Markdown, mendukung task list &amp; mention</p>
+
+<p>CommonMark	Standar resmi Markdown</p>
+
+<p>MultiMarkdown	Mendukung catatan kaki &amp; tabel kompleks</p>
+
+<hr />
+
+<h2 id="-tips--trik-markdown">🧩 Tips &amp; Trik Markdown</h2>
+<p>✨ Gunakan <!-- komentar --> untuk komentar.</p>
+
+<p>✨ Preview langsung dengan ekstensi seperti Markdown Preview di VSCode.</p>
+
+<p>✨ Pakai GFM untuk dokumentasi GitHub biar hasilnya maksimal.</p>
+
+<hr />
+
+<h2 id="-kesimpulan">🎯 Kesimpulan</h2>
+<p><strong>Markdown</strong> adalah cara paling simpel dan powerful untuk menulis konten terstruktur. Cocok untuk:</p>
+
+<p>Penulis 📚</p>
+
+<p>Developer 👨‍💻</p>
+
+<p>Blogger ✨</p>
+
+<p>Dokumentasi 📄</p>
+
+<p>Tulis sekali, tampil rapi di mana-mana. 😎</p>

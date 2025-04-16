@@ -1,0 +1,253 @@
+<blockquote>
+  <p>📘 <em>Panduan step-by-step membuat personal website statis menggunakan Ruby, Jekyll, dan GitHub Pages. Ideal untuk pemula dan menengah.</em></p>
+</blockquote>
+
+<hr />
+
+<h2 id="-1-persiapan-awal">🧰 1. Persiapan Awal</h2>
+
+<h3 id="-cek-ruby">✅ Cek Ruby</h3>
+<ol>
+  <li><strong>Cek apakah Ruby sudah terpasang</strong><br />
+Buka terminal atau Command Prompt, lalu ketik:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby <span class="nt">-v</span>
+</code></pre></div>    </div>
+    <p>Jika Ruby sudah terpasang, maka akan muncul versi Ruby. Jika belum, ikuti langkah berikutnya.</p>
+  </li>
+  <li><strong>Cek RubyGems</strong><br />
+Ketik perintah berikut:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Cek GCC dan Make</strong><br />
+Ketik perintah berikut:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-v</span>
+g++ <span class="nt">-v</span>
+make <span class="nt">-v</span>
+</code></pre></div>    </div>
+    <p>ika belum tersedia, install melalui:</p>
+  </li>
+</ol>
+
+<p>🟦 MinGW</p>
+
+<p>🐧 sudo apt install build-essential (Linux)</p>
+
+<p><strong>Download Ruby Installer</strong></p>
+<ul>
+  <li>Buka link berikut: <a href="https://rubyinstaller.org">https://rubyinstaller.org</a></li>
+  <li>Pilih versi <strong>Ruby 2.7.0</strong> atau lebih tinggi.</li>
+  <li>Ikuti instruksi instalasi hingga selesai.</li>
+</ul>
+
+<p>✅ Install Jekyll &amp; Bundler
+bash
+Copy
+Edit
+gem install jekyll bundler</p>
+
+<hr />
+
+<p>🛠️ Install Pendukung
+💡 Git (Version Control)
+bash
+Copy
+Edit
+git –version
+🔗 Download Git lalu install sesuai OS kamu.</p>
+
+<hr />
+
+<p>🧑‍💻 VSCode (Text Editor)
+🔗 Download VSCode</p>
+
+<hr />
+
+<p>🌐 Google Chrome (Browser)
+🔗 Download Chrome</p>
+
+<hr />
+
+<p>Chrome</p>
+
+<p>🌍 Siapkan GitHub &amp; Repository
+🐙 Buat Akun GitHub
+🔗 github.com</p>
+
+<hr />
+
+<p>🧱 Buat Repository Baru
+Gunakan format: username.github.io
+Contoh: faiza.github.io</p>
+
+<hr />
+
+<p>💻 Mulai Proyek Jekyll
+🔁 Clone Repo GitHub
+bash
+Copy
+Edit
+git clone https://github.com/username/username.github.io.git
+cd username.github.io</p>
+
+<hr />
+
+<p>📦 Inisialisasi Bundler
+bash
+Copy
+Edit
+bundle init
+Perintah ini akan membuat file <code class="language-plaintext highlighter-rouge">Gemfile</code> di dalam folder proyek.</p>
+
+<hr />
+
+<p>✏️ Edit Gemfile
+Tambahkan:</p>
+
+<p>ruby
+Copy
+Edit
+source “https://rubygems.org”
+gem “jekyll”
+Install:</p>
+
+<p>bash
+Copy
+Edit
+bundle install</p>
+
+<hr />
+
+<p>📄 Buat index.html
+html
+Copy
+Edit
+&lt;!DOCTYPE html&gt;</p>
+<html>
+  <head>
+    <title>My Jekyll Site</title>
+  </head>
+  <body>
+    <h1>Hello World from Jekyll 👋</h1>
+    <p>This is a simple personal site powered by Jekyll and GitHub Pages.</p>
+  </body>
+</html>
+
+<hr />
+
+<p>🔧 Jalankan Jekyll Secara Lokal
+🔨 Build
+bash
+Copy
+Edit
+jekyll build
+🚀 Jalankan Server
+bash
+Copy
+Edit
+jekyll serve
+Buka di browser:
+📡 http://localhost:4000</p>
+
+<p>💡 Live reload:</p>
+
+<p>bash
+Copy
+Edit
+jekyll serve –livereload</p>
+
+<hr />
+
+<p>🐧 6. Linux Tips (Optional)
+Edit Gemfile.lock
+Tambahkan:</p>
+
+<p>nginx
+Copy
+Edit
+PLATFORMS
+  ruby
+  x86_64-linux</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+---
+
+⬆️ Push ke GitHub
+bash
+Copy
+Edit
+git add .
+git commit -m "Initial Jekyll site"
+git push origin main    
+
+---
+
+⚙️ 8. Otomatisasi dengan GitHub Actions
+Buat folder dan file:
+
+bash
+Copy
+Edit
+mkdir -p .github/workflows
+touch .github/workflows/jekyll.yml
+Isi file jekyll.yml:
+
+yaml
+Copy
+Edit
+name: Jekyll Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site
+        run: JEKYLL_ENV=production bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: $
+          publish_dir: ./_site
+Push kembali:
+
+bash
+Copy
+Edit
+git add .
+git commit -m "Add CI/CD GitHub Actions"
+git push origin main    
+
+---
+
+🌐 9. Selesai!
+✅ Website kamu siap diakses via:
+
+bash
+Copy
+Edit
+https://username.github.io
+
+---
+
+🛠️ Troubleshooting
+
+Masalah	Solusi
+❌ Port Konflik	jekyll serve --host 0.0.0.0 --port 4001
+❌ Build gagal	Pastikan Ruby dan Bundler sudah terpasang
+❌ GitHub Pages kosong	Pastikan branch utama: main
+</code></pre></div></div>

@@ -1,7 +1,131 @@
-.current{
-    color: green;
-}
-
-.last_name {
-    color: blue;
-}
+/* ====== Global Style ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #5f6caf, #0a2a3c);
+    color: #f3f4f7;
+    text-align: center;
+    padding: 40px 0;
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* ====== Header Style ====== */
+  header h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    background: linear-gradient(90deg, #0072ff, #00c6ff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    animation: shineEffect 4s linear infinite;
+  }
+  
+  header p {
+    font-size: 1.2em;
+    color: #a8a8a8;
+  }
+  
+  /* Animasi Efek Shine */
+  @keyframes shineEffect {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  
+  /* ====== Navigasi ====== */
+  nav {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 25px;
+    background: rgba(0, 194, 255, 0.7);
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  nav a:hover {
+    background: rgba(0, 174, 255, 0.9);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 174, 255, 0.5);
+  }
+  
+  /* ====== Daftar Anggota ====== */
+  .list-section {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .list-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 10px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s ease;
+  }
+  
+  ul li:hover {
+    background-color: rgba(0, 194, 255, 0.3);
+    transform: translateX(10px);
+  }
+  
+  @media (max-width: 768px) {
+    .list-section {
+      width: 80%;
+    }
+  
+    header h1 {
+      font-size: 2.5em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 2em;
+    }
+  
+    nav a {
+      font-size: 0.9em;
+    }
+  
+    .list-section {
+      width: 90%;
+    }
+  }
