@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: posts
 title: "🚀 Panduan Lengkap Instalasi Ruby, Jekyll & GitHub Pages"
+date: 2025-02-20
 ---
 
 > 📘 *Panduan step-by-step membuat personal website statis menggunakan Ruby, Jekyll, dan GitHub Pages. Ideal untuk pemula dan menengah.*

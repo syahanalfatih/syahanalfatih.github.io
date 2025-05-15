@@ -7,3 +7,7 @@ sass:
   style: compressed
 
 theme: null
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag

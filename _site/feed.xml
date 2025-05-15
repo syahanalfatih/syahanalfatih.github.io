@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-15T22:51:29+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Home</title><entry><title type="html">🔌 Panduan Lengkap Plugin di Jekyll</title><link href="http://localhost:4000/2025/04/24/Plugins.html" rel="alternate" type="text/html" title="🔌 Panduan Lengkap Plugin di Jekyll" /><published>2025-04-24T00:00:00+07:00</published><updated>2025-04-24T00:00:00+07:00</updated><id>http://localhost:4000/2025/04/24/Plugins</id><content type="html" xml:base="http://localhost:4000/2025/04/24/Plugins.html"><![CDATA[<p>Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri.</p>
+
+<hr />
+
+<h2 id="-apa-itu-plugin-jekyll">❓ Apa Itu Plugin Jekyll?</h2>
+
+<p><strong>Plugin Jekyll</strong> adalah ekstensi Ruby yang berjalan saat proses build. Fungsinya antara lain:</p>
+
+<ul>
+  <li>🔧 Menambah tag dan filter Liquid</li>
+  <li>📄 Membuat konten otomatis (seperti <code class="language-plaintext highlighter-rouge">sitemap.xml</code>)</li>
+  <li>🚀 Mengoptimalkan performa dan SEO situs</li>
+  <li>🔗 Integrasi layanan eksternal (RSS, analytics, dll)</li>
+</ul>
+
+<hr />
+
+<h2 id="️-cara-mengaktifkan-plugin">⚙️ Cara Mengaktifkan Plugin</h2>
+
+<p>Tambahkan nama plugin ke dalam file <code class="language-plaintext highlighter-rouge">_config.yml</code> seperti berikut:</p>
+
+<p>```yml
+plugins:</p>
+<ul>
+  <li>jekyll-sitemap</li>
+  <li>jekyll-feed</li>
+  <li>jekyll-seo-tag</li>
+</ul>
+
+<p>💡 Pastikan plugin yang ditambahkan sudah di-install di proyek (lihat langkah berikut).</p>
+
+<p>📦 Cara Instal Plugin</p>
+<ol>
+  <li>Tambahkan ke Gemfile
+ruby
+Copy
+Edit
+gem “jekyll-sitemap”
+gem “jekyll-feed”
+gem “jekyll-seo-tag”</li>
+  <li>Jalankan instalasi dengan Bundler
+bash
+Copy
+Edit
+bundle install</li>
+  <li>Tambahkan juga ke _config.yml (jika belum)
+📌 Catatan: Jika menggunakan GitHub Pages, hanya plugin tertentu yang diizinkan. Lihat daftar plugin resmi GitHub Pages.</li>
+</ol>
+
+<p>🌟 Plugin Jekyll Populer
+Plugin	Fungsi
+jekyll-sitemap	Membuat file sitemap.xml otomatis
+jekyll-feed	Membuat RSS feed dari postingan
+jekyll-seo-tag	Menambahkan meta tag SEO ke halaman dan postingan
+jekyll-paginate	Menyediakan fitur pagination (halaman blog terbagi)
+jekyll-archives	Menyediakan arsip berdasarkan kategori, tag, atau tanggal</p>
+
+<p>🔧 Membuat Plugin Kustom
+Kamu bisa membuat plugin sendiri untuk kebutuhan unik.</p>
+
+<p>Langkah:
+Buat folder: _plugins/</p>
+
+<p>Buat file Ruby di dalamnya, contoh hello.rb:</p>
+
+<p>ruby
+Copy
+Edit
+module Jekyll
+  class HelloTag &lt; Liquid::Tag
+    def render(context)
+      “Halo dari plugin Jekyll!”
+    end
+  end
+end</p>
+
+<p>Liquid::Template.register_tag(‘hello’, Jekyll::HelloTag)
+Gunakan dalam post:</p>
+
+<p>liquid
+Copy
+Edit
+{ Hello %}</p>
+
+<p>🚫 Plugin &amp; GitHub Pages
+GitHub Pages membatasi plugin karena alasan keamanan.</p>
+
+<p>Solusi jika plugin tidak didukung:
+✅ Build situs secara lokal, lalu push hasil _site/ ke GitHub</p>
+
+<p>🚀 Gunakan GitHub Actions untuk build otomatis</p>
+
+<p>☁️ Deploy ke layanan lain seperti Netlify, Vercel, atau Cloudflare Pages</p>
+
+<p>✅ Kesimpulan
+Plugin Jekyll membuat situs lebih dinamis, fleksibel, dan powerful</p>
+
+<p>Tambahkan plugin ke Gemfile dan _config.yml</p>
+
+<p>Bisa bikin plugin sendiri untuk kebutuhan khusus</p>
+
+<p>Hati-hati dengan batasan GitHub Pages: build lokal atau deploy ke layanan lain</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri.]]></summary></entry><entry><title type="html">⚙️ Panduan Lengkap: Mengenal dan Mengatur _config.yml pada Jekyll</title><link href="http://localhost:4000/2025/04/24/Config-Yml.html" rel="alternate" type="text/html" title="⚙️ Panduan Lengkap: Mengenal dan Mengatur _config.yml pada Jekyll" /><published>2025-04-24T00:00:00+07:00</published><updated>2025-04-24T00:00:00+07:00</updated><id>http://localhost:4000/2025/04/24/Config-Yml</id><content type="html" xml:base="http://localhost:4000/2025/04/24/Config-Yml.html"><![CDATA[<p>File <code class="language-plaintext highlighter-rouge">_config.yml</code> adalah jantung dari konfigurasi situs Jekyll. Semua pengaturan utama seperti judul, URL, tema, plugin, dan bahkan perilaku build situs diatur dari file ini.</p>
+
+<p>Memahami struktur dan penggunaan <code class="language-plaintext highlighter-rouge">_config.yml</code> akan memudahkan Anda mengelola situs Jekyll secara efisien dan profesional.</p>
+
+<hr />
+
+<h2 id="-apa-itu-_configyml">📁 Apa Itu <code class="language-plaintext highlighter-rouge">_config.yml</code>?</h2>
+
+<p>File <code class="language-plaintext highlighter-rouge">_config.yml</code> ditulis dalam format <strong>YAML</strong> (YAML Ain’t Markup Language) dan digunakan untuk:</p>
+
+<ul>
+  <li>Menyimpan <strong>metadata</strong> situs seperti nama, deskripsi, dan penulis.</li>
+  <li>Mengatur <strong>struktur URL</strong> (permalink) untuk halaman dan postingan.</li>
+  <li>Mengaktifkan <strong>plugin</strong> dan tema.</li>
+  <li>Mengelola <strong>koleksi khusus</strong>, pagination, serta opsi build lainnya.</li>
+</ul>
+
+<p>Jekyll membaca file ini setiap kali Anda menjalankan <code class="language-plaintext highlighter-rouge">jekyll build</code> atau <code class="language-plaintext highlighter-rouge">jekyll serve</code>.</p>
+
+<hr />
+
+<h2 id="-contoh-struktur-dasar-_configyml">🧰 Contoh Struktur Dasar <code class="language-plaintext highlighter-rouge">_config.yml</code></h2>
+
+<p>```yml
+title: “Blog Teknologi”
+description: “Kumpulan tulisan seputar coding, web, dan open source”
+baseurl: “” # Kosongkan jika domain utama
+url: “https://namasitus.github.io”</p>
+
+<p>author:
+  name: “Nama Anda”
+  email: “email@domain.com”</p>
+
+<p>theme: minima</p>
+
+<p>permalink: /:categories/:title/</p>
+
+<p>plugins:</p>
+<ul>
+  <li>jekyll-feed</li>
+  <li>jekyll-seo-tag</li>
+  <li>jekyll-sitemap</li>
+</ul>
+
+<p>🔍 Penjelasan Konfigurasi
+Kunci	Fungsi
+title	Judul situs, muncul di tab browser dan halaman utama.
+description	Deskripsi singkat situs, penting untuk SEO.
+baseurl	Digunakan jika situs dihosting dalam subdirektori (misal /blog).
+url	URL utama situs Anda (sertakan https://).
+author	Informasi tentang penulis. Bisa ditampilkan di footer atau bio.
+theme	Tema yang digunakan situs (contoh: minima).
+permalink	Menentukan format URL halaman/postingan.
+plugins	Plugin yang diaktifkan untuk memperluas fungsi situs.</p>
+
+<p>⚙️ Konfigurasi Lanjutan
+Anda bisa menambahkan pengaturan lebih kompleks untuk menyesuaikan kebutuhan proyek:</p>
+
+<p>yml
+Copy
+Edit
+markdown: kramdown
+highlighter: rouge
+paginate: 5
+paginate_path: “/page:num/”</p>
+
+<p>collections:
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
+Penjelasan:</p>
+
+<p>markdown: Engine untuk memproses Markdown. Default: kramdown.</p>
+
+<p>highlighter: Syntax highlighting untuk kode. Default: rouge.</p>
+
+<p>paginate: Jumlah postingan per halaman.</p>
+
+<p>paginate_path: Format URL untuk pagination.</p>
+
+<p>collections: Koleksi konten tambahan selain _posts.</p>
+
+<p>🌐 Konfigurasi untuk GitHub Pages
+Jika Anda menggunakan GitHub Pages:</p>
+
+<p>yml
+Copy
+Edit
+remote_theme: jekyll/minima
+plugins:</p>
+<ul>
+  <li>jekyll-feed</li>
+  <li>jekyll-seo-tag</li>
+</ul>
+
+<h1 id="optional-baseurl--url">Optional: baseurl &amp; url</h1>
+<p>baseurl: “” # jika di root, kosongkan
+url: “https://username.github.io”
+Tambahkan juga file .nojekyll di root untuk mencegah GitHub Pages mengabaikan folder yang dimulai dengan _.</p>
+
+<p>🌍 Mengelola Beberapa Environment (Dev vs Prod)
+Gunakan beberapa file konfigurasi untuk memisahkan konfigurasi development dan production:</p>
+
+<p>_config.yml (utama):</p>
+
+<p>yml
+Copy
+Edit
+title: “Blog Saya”
+url: “https://namasitus.com”
+_config_dev.yml (khusus development):</p>
+
+<p>yml
+Copy
+Edit
+url: “http://localhost:4000”
+Lalu jalankan dengan:</p>
+
+<p>bash
+Copy
+Edit
+jekyll serve –config _config.yml,_config_dev.yml</p>
+
+<p>💡 Tips Penggunaan
+Gunakan spasi, bukan tab — YAML sangat sensitif terhadap indentasi.</p>
+
+<p>Setelah mengubah _config.yml, restart server (ctrl + c lalu jekyll serve) agar perubahan diterapkan.</p>
+
+<p>Validasi file YAML Anda secara online atau dengan linter jika perlu.</p>
+
+<p>✅ Kesimpulan
+_config.yml adalah pusat pengaturan proyek Jekyll Anda.</p>
+
+<p>File ini mengontrol layout, plugin, struktur URL, dan lainnya.</p>
+
+<p>Menguasai YAML dan memahami struktur file ini akan membuat Anda lebih leluasa dalam membangun dan mengelola situs.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[File _config.yml adalah jantung dari konfigurasi situs Jekyll. Semua pengaturan utama seperti judul, URL, tema, plugin, dan bahkan perilaku build situs diatur dari file ini.]]></summary></entry><entry><title type="html">🔗 HTML Link &amp;amp; 📋 Lists</title><link href="http://localhost:4000/2025/03/20/html-link-dan-lists.html" rel="alternate" type="text/html" title="🔗 HTML Link &amp;amp; 📋 Lists" /><published>2025-03-20T00:00:00+07:00</published><updated>2025-03-20T00:00:00+07:00</updated><id>http://localhost:4000/2025/03/20/html-link-dan-lists</id><content type="html" xml:base="http://localhost:4000/2025/03/20/html-link-dan-lists.html"><![CDATA[<blockquote>
+  <p>📘 <em>Pelajari cara membuat tautan (link) dan daftar (lists) di HTML untuk membangun struktur konten yang rapi dan interaktif.</em>.</p>
+</blockquote>
+
+<p>Gambar ini menunjukkan pemandangan pantai saat matahari terbenam dengan langit berawan berwarna jingga dan biru. Cahaya matahari memantul di permukaan air dan batu-batu basah di pantai, menciptakan suasana dramatis dan indah. Gelombang kecil menambah ketenangan pada lanskap ini.</p>
+
+<p><img src="/assets/image/th.jpg" alt="hmtl link dan list" /></p>]]></content><author><name></name></author><summary type="html"><![CDATA[📘 Pelajari cara membuat tautan (link) dan daftar (lists) di HTML untuk membangun struktur konten yang rapi dan interaktif..]]></summary></entry><entry><title type="html">🎨 Layout &amp;amp; 🔀 Navigasi: Desain Antarmuka yang Efektif</title><link href="http://localhost:4000/2025/03/13/Layout-dan-Navigation.html" rel="alternate" type="text/html" title="🎨 Layout &amp;amp; 🔀 Navigasi: Desain Antarmuka yang Efektif" /><published>2025-03-13T00:00:00+07:00</published><updated>2025-03-13T00:00:00+07:00</updated><id>http://localhost:4000/2025/03/13/Layout-dan-Navigation</id><content type="html" xml:base="http://localhost:4000/2025/03/13/Layout-dan-Navigation.html"><![CDATA[<blockquote>
+  <p>📘 <em>Memahami dasar layout dan navigasi adalah kunci menciptakan antarmuka pengguna (UI) yang rapi, menarik, dan mudah digunakan.</em></p>
+</blockquote>
+
+<hr />
+
+<h1 id="-layout--navigasi">🧱 <strong>Layout &amp; Navigasi</strong></h1>
+
+<h2 id="1️⃣-apa-itu-layout">1️⃣ <strong>Apa itu Layout?</strong></h2>
+
+<p><strong>Layout</strong> adalah cara menyusun elemen visual pada sebuah halaman agar mudah dipahami, estetis, dan efisien. Tujuannya:<br />
+✅ Mempermudah pengguna menavigasi konten<br />
+✅ Menciptakan struktur visual yang logis<br />
+✅ Meningkatkan daya tarik visual</p>
+
+<hr />
+
+<h2 id="-fungsi-layout">🧩 <strong>Fungsi Layout</strong></h2>
+<ul>
+  <li>🧠 <strong>Keterbacaan</strong> – Membuat informasi mudah dipahami</li>
+  <li>🎯 <strong>Fokus</strong> – Menyoroti elemen penting seperti tombol <em>Call to Action</em></li>
+  <li>⚡ <strong>Efisiensi</strong> – Navigasi cepat dan intuitif</li>
+  <li>💅 <strong>Estetika</strong> – Memberikan kesan profesional &amp; menarik</li>
+</ul>
+
+<hr />
+
+<h2 id="-prinsip-layout-yang-baik">📐 <strong>Prinsip Layout yang Baik</strong></h2>
+
+<ol>
+  <li>
+    <p>🔁 <strong>Alignment (Penyelarasan)</strong><br />
+Elemen disejajarkan dengan rapi untuk menciptakan harmoni visual.</p>
+  </li>
+  <li>
+    <p>🧲 <strong>Proximity (Kedekatan)</strong><br />
+Elemen terkait dikelompokkan bersama.</p>
+  </li>
+  <li>
+    <p>🔂 <strong>Repetition (Pengulangan)</strong><br />
+Konsistensi warna, font, dan elemen desain di seluruh halaman.</p>
+  </li>
+  <li>
+    <p>⚖️ <strong>Contrast (Kontras)</strong><br />
+Gunakan warna, ukuran, atau bentuk berbeda untuk membedakan elemen penting.</p>
+  </li>
+  <li>
+    <p>🏞️ <strong>White Space (Ruang Kosong)</strong><br />
+Memberi ruang untuk bernafas, membuat tampilan tidak sumpek.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="-jenis-jenis-layout">🧱 <strong>Jenis-Jenis Layout</strong></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipe Layout</th>
+      <th>Deskripsi Singkat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📏 Single Column</td>
+      <td>Konten disusun vertikal dalam satu kolom</td>
+    </tr>
+    <tr>
+      <td>📐 Multi-Column</td>
+      <td>Konten dibagi dalam beberapa kolom</td>
+    </tr>
+    <tr>
+      <td>🧮 Grid-Based</td>
+      <td>Gunakan grid sebagai dasar penempatan elemen</td>
+    </tr>
+    <tr>
+      <td>🃏 Card-Based</td>
+      <td>Konten ditampilkan dalam kotak-kotak (kartu)</td>
+    </tr>
+    <tr>
+      <td>🌓 Split-Screen</td>
+      <td>Layar terbagi dua sisi, cocok untuk perbandingan</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="2️⃣-navigasi-arahkan-pengguna-dengan-jelas">2️⃣ <strong>Navigasi: Arahkan Pengguna dengan Jelas</strong></h2>
+
+<p><strong>Navigasi</strong> adalah peta jalan bagi pengguna untuk menjelajahi situs atau aplikasi. Navigasi yang buruk = frustrasi pengguna.</p>
+
+<hr />
+
+<h2 id="-fungsi-navigasi">🧭 <strong>Fungsi Navigasi</strong></h2>
+<ul>
+  <li>🔍 <strong>Akses cepat ke informasi</strong></li>
+  <li>😀 <strong>Meningkatkan UX</strong></li>
+  <li>📉 <strong>Mengurangi bounce rate</strong></li>
+  <li>🗂️ <strong>Mengatur struktur &amp; hierarki informasi</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="-prinsip-navigasi-yang-efektif">🧠 <strong>Prinsip Navigasi yang Efektif</strong></h2>
+
+<ol>
+  <li>📌 <strong>Konsistensi</strong> – Menu selalu berada di tempat yang sama</li>
+  <li>🧱 <strong>Struktur Hirarki</strong> – Menu terorganisir dan logis</li>
+  <li>✨ <strong>Feedback Visual</strong> – Navigasi merespon saat dihover/klik</li>
+  <li>🗣️ <strong>Deskripsi Jelas</strong> – Nama tombol/menu mudah dimengerti</li>
+  <li>🚫 <strong>Minimalkan Pilihan</strong> – Jangan buat pengguna kewalahan</li>
+</ol>
+
+<hr />
+
+<h2 id="️-jenis-navigasi-umum">🗺️ <strong>Jenis Navigasi Umum</strong></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Jenis Navigasi</th>
+      <th>Deskripsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>📍 Horizontal</td>
+      <td>Menu bar di bagian atas halaman</td>
+    </tr>
+    <tr>
+      <td>📚 Vertical</td>
+      <td>Sidebar menu di kiri/kanan halaman</td>
+    </tr>
+    <tr>
+      <td>🍔 Hamburger Menu</td>
+      <td>Ikon tiga garis, membuka menu tersembunyi</td>
+    </tr>
+    <tr>
+      <td>🧵 Breadcrumb</td>
+      <td>Menunjukkan lokasi pengguna dalam struktur situs</td>
+    </tr>
+    <tr>
+      <td>🔽 Footer</td>
+      <td>Navigasi tambahan di bagian bawah</td>
+    </tr>
+    <tr>
+      <td>🧭 Sidebar</td>
+      <td>Navigasi kategori/filter di sisi halaman</td>
+    </tr>
+    <tr>
+      <td>🧑‍💼 Tab</td>
+      <td>Navigasi antar tab konten yang saling berkaitan</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-hubungan-layout--navigasi">🔗 <strong>Hubungan Layout &amp; Navigasi</strong></h2>
+
+<blockquote>
+  <p>Layout = <strong>bagaimana elemen disusun</strong><br />
+Navigasi = <strong>bagaimana pengguna menjelajahi</strong> elemen tersebut</p>
+</blockquote>
+
+<p>✅ Layout mendukung navigasi agar terlihat jelas dan mudah diakses<br />
+✅ Navigasi memperkuat layout agar konten bisa dijelajahi secara logis<br />
+✅ Kombinasi keduanya → <strong>UX yang memuaskan &amp; profesional</strong></p>
+
+<hr />
+
+<h2 id="-kesimpulan">🏁 <strong>Kesimpulan</strong></h2>
+
+<ul>
+  <li>✨ <strong>Layout</strong> menyusun elemen visual agar rapi dan menarik</li>
+  <li>🔄 <strong>Navigasi</strong> mengarahkan pengguna ke informasi yang dibutuhkan</li>
+  <li>🎯 Keduanya wajib <strong>konsisten, intuitif, dan saling mendukung</strong></li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>💡 <em>Desain bukan sekadar estetika — tapi tentang bagaimana sesuatu bekerja. Buat layout &amp; navigasi kamu seolah tak perlu dijelaskan!</em></p>
+</blockquote>]]></content><author><name></name></author><summary type="html"><![CDATA[📘 Memahami dasar layout dan navigasi adalah kunci menciptakan antarmuka pengguna (UI) yang rapi, menarik, dan mudah digunakan.]]></summary></entry><entry><title type="html">📝 Panduan Lengkap Markdown</title><link href="http://localhost:4000/2025/03/06/Markdown.html" rel="alternate" type="text/html" title="📝 Panduan Lengkap Markdown" /><published>2025-03-06T00:00:00+07:00</published><updated>2025-03-06T00:00:00+07:00</updated><id>http://localhost:4000/2025/03/06/Markdown</id><content type="html" xml:base="http://localhost:4000/2025/03/06/Markdown.html"><![CDATA[<blockquote>
+  <p>📄 <strong>Markdown</strong> adalah bahasa markup ringan yang dirancang agar mudah dibaca, mudah ditulis, dan mudah dikonversi ke HTML.<br />
+📅 <em>Diperkenalkan oleh John Gruber &amp; Aaron Swartz pada tahun 2004.</em></p>
+</blockquote>
+
+<hr />
+
+<h1 id="-panduan-lengkap-markdown">🚀 <strong>Panduan Lengkap Markdown</strong></h1>
+
+<p>Panduan ini mencakup semua yang perlu kamu tahu untuk mulai menulis dengan Markdown — dari sintaks dasar hingga tips profesional!</p>
+
+<hr />
+
+<h2 id="1--sintaks-dasar-markdown"><strong>1. 🔧 Sintaks Dasar Markdown</strong></h2>
+
+<h3 id="-heading-judul">📌 Heading (Judul)</h3>
+<p>Gunakan <code class="language-plaintext highlighter-rouge">#</code> untuk membuat heading dari level 1 sampai 6:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Heading 1</span>
+<span class="gu">## Heading 2</span>
+<span class="gu">### Heading 3</span>
+<span class="gu">#### Heading 4</span>
+<span class="gu">##### Heading 5</span>
+<span class="gu">###### Heading 6</span>
+</code></pre></div></div>
+
+<p>Hasil:</p>
+
+<p>Heading 1</p>
+
+<p>Heading 2</p>
+
+<p>Heading 3</p>
+
+<p>Heading 4</p>
+
+<p>Heading 5</p>
+
+<p>Heading 6</p>
+
+<hr />
+
+<h3 id="2--teks-tebal-miring-dan-dicoret">2. 💬 Teks Tebal, Miring, dan Dicoret</h3>
+<ul>
+  <li><strong>Tebal</strong>    =&gt;  <strong>Tebal</strong></li>
+  <li><em>Miring</em>    =&gt;  <em>Miring</em></li>
+  <li><del>Dicoret</del> =&gt;  <del>Dicoret</del></li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Teks Tebal**</span> atau __Teks Tebal__
+<span class="ge">*Teks Miring*</span> atau _Teks Miring_
+~~Teks Dicoret~~
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<p><strong>Teks Tebal</strong><br />
+<em>Teks Miring</em><br />
+<del>Teks Dicoret</del></p>
+
+<hr />
+
+<h3 id="3--daftar-list">3. 📋 Daftar (List)</h3>
+<p>🔹 Unordered List
+markdown
+Copy
+Edit</p>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+      <li>Sub-item</li>
+    </ul>
+  </li>
+  <li>Item 3
+🔸 Ordered List
+markdown
+Copy
+Edit
+    <ol>
+      <li>Langkah pertama</li>
+      <li>Langkah kedua</li>
+      <li>Langkah ketiga</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+<p>🔗 Tautan
+markdown
+Copy
+Edit
+<a href="https://www.openai.com">OpenAI</a>
+Hasil:
+OpenAI</p>
+
+<hr />
+
+<h3 id="5-gambar">5. <strong>Gambar</strong></h3>
+<p>Gunakan format <code class="language-plaintext highlighter-rouge">![teks alternatif](URL)</code> untuk menyisipkan gambar:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">Markdown Logo</span><span class="p">](</span><span class="sx">https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong><br />
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" alt="Markdown Logo" /></p>
+
+<hr />
+
+<h3 id="6-kode-inline-dan-blok">6. <strong>Kode (Inline dan Blok)</strong></h3>
+<ul>
+  <li><strong>Kode inline</strong>: Gunakan <code class="language-plaintext highlighter-rouge">`</code> di awal dan akhir teks</li>
+  <li><strong>Blok kode</strong>: Gunakan tiga backtick (```) di awal dan akhir blok kode. Bisa ditentukan bahasa pemrograman untuk highlighting.</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kode inline: <span class="sb">`print("Hello, world!")`</span>
+
+Blok kode:
+<span class="p">```</span><span class="nl">python
+</span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello World</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+**Hasil:**
+
+Kode inline: `print("Hello, world!")`
+
+Blok kode:
+```python
+def hello():
+    print("Hello, world!")
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="7--kutipan-blockquote">7. 📌 Kutipan (Blockquote)</h3>
+<p>markdown
+Copy
+Edit</p>
+<blockquote>
+  <p>Ini kutipan utama.</p>
+  <blockquote>
+    <p>Ini kutipan bersarang.
+Ini kutipan utama</p>
+  </blockquote>
+</blockquote>
+
+<p>Ini kutipan bersarang</p>
+
+<hr />
+
+<h3 id="8-garis-pemisah-horizontal-line">8. <strong>Garis Pemisah (Horizontal Line)</strong></h3>
+<p>Gunakan <code class="language-plaintext highlighter-rouge">---</code>, <code class="language-plaintext highlighter-rouge">***</code>, atau <code class="language-plaintext highlighter-rouge">___</code> untuk membuat garis pemisah:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">---</span>
+<span class="p">***</span>
+<span class="ge">__</span>_
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<hr />
+
+<hr />
+
+<h3 id="9-tabel">9. <strong>Tabel</strong></h3>
+<p>Gunakan garis <code class="language-plaintext highlighter-rouge">|</code> untuk membuat tabel:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Nama | Umur | Kota     |
+|------|------|----------|
+| Ana  | 22   | Jakarta  |
+| Budi | 24   | Bandung  |
+</code></pre></div></div>
+
+<p><strong>Hasil:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Umur</th>
+      <th>Kota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ana</td>
+      <td>22</td>
+      <td>Jakarta</td>
+    </tr>
+    <tr>
+      <td>Budi</td>
+      <td>24</td>
+      <td>Bandung</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-contoh-penggunaan-markdown">🎯 Contoh Penggunaan Markdown</h2>
+<ol>
+  <li><strong>Dokumentasi Kode</strong> – Digunakan di GitHub dan GitLab untuk README.md</li>
+  <li><strong>Catatan</strong> – Digunakan untuk mencatat di aplikasi seperti Obsidian atau Notion</li>
+  <li><strong>Blog</strong> – Beberapa platform blogging mendukung Markdown</li>
+  <li><strong>Presentasi</strong> – Alat seperti Marp atau Deckset mendukung Markdown</li>
+</ol>
+
+<hr />
+
+<h2 id="-keunggulan-markdown">🚀 Keunggulan Markdown</h2>
+<p>🔹 Mudah dibaca</p>
+
+<p>🔹 Ringan &amp; cepat</p>
+
+<p>🔹 Didukung banyak platform (GitHub, VSCode, Jupyter, dll)</p>
+
+<hr />
+
+<h2 id="️-keterbatasan-markdown">⚠️ Keterbatasan Markdown</h2>
+<p>❌ Tidak bisa membuat layout kompleks</p>
+
+<p>❌ Tidak cocok untuk styling visual canggih seperti CSS</p>
+
+<p>❌ Tidak semua renderer dukung fitur penuh</p>
+
+<hr />
+
+<h2 id="-varian-markdown">🔄 Varian Markdown</h2>
+
+<p>Varian	Keterangan</p>
+
+<p>GFM	GitHub Flavored Markdown, mendukung task list &amp; mention</p>
+
+<p>CommonMark	Standar resmi Markdown</p>
+
+<p>MultiMarkdown	Mendukung catatan kaki &amp; tabel kompleks</p>
+
+<hr />
+
+<h2 id="-tips--trik-markdown">🧩 Tips &amp; Trik Markdown</h2>
+<p>✨ Gunakan <!-- komentar --> untuk komentar.</p>
+
+<p>✨ Preview langsung dengan ekstensi seperti Markdown Preview di VSCode.</p>
+
+<p>✨ Pakai GFM untuk dokumentasi GitHub biar hasilnya maksimal.</p>
+
+<hr />
+
+<h2 id="-kesimpulan">🎯 Kesimpulan</h2>
+<p><strong>Markdown</strong> adalah cara paling simpel dan powerful untuk menulis konten terstruktur. Cocok untuk:</p>
+
+<p>Penulis 📚</p>
+
+<p>Developer 👨‍💻</p>
+
+<p>Blogger ✨</p>
+
+<p>Dokumentasi 📄</p>
+
+<p>Tulis sekali, tampil rapi di mana-mana. 😎</p>]]></content><author><name></name></author><summary type="html"><![CDATA[📄 Markdown adalah bahasa markup ringan yang dirancang agar mudah dibaca, mudah ditulis, dan mudah dikonversi ke HTML. 📅 Diperkenalkan oleh John Gruber &amp; Aaron Swartz pada tahun 2004.]]></summary></entry><entry><title type="html">✨ Menggunakan SASS &amp;amp; SCSS di Jekyll</title><link href="http://localhost:4000/2025/02/22/SASS-dan-SCSS.html" rel="alternate" type="text/html" title="✨ Menggunakan SASS &amp;amp; SCSS di Jekyll" /><published>2025-02-22T00:00:00+07:00</published><updated>2025-02-22T00:00:00+07:00</updated><id>http://localhost:4000/2025/02/22/SASS-dan-SCSS</id><content type="html" xml:base="http://localhost:4000/2025/02/22/SASS-dan-SCSS.html"><![CDATA[<p>Jekyll mendukung <strong>SASS/SCSS</strong> secara <em>built-in</em>, memungkinkan Anda membuat style yang <strong>modular</strong>, <strong>rapi</strong>, dan <strong>mudah dirawat</strong>.</p>
+
+<p>Dengan SCSS, Anda bisa memakai variabel warna, nested rules, mixin, dan fitur lain yang membuat penulisan CSS jauh lebih powerful!</p>
+
+<hr />
+
+<h2 id="-apa-itu-sass--scss">💡 Apa Itu SASS &amp; SCSS?</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Format</th>
+      <th>Deskripsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SASS</strong></td>
+      <td>Sintaks lama (tanpa <code class="language-plaintext highlighter-rouge">{}</code> dan <code class="language-plaintext highlighter-rouge">;</code>) — lebih ringkas</td>
+    </tr>
+    <tr>
+      <td><strong>SCSS</strong></td>
+      <td>Sintaks mirip CSS (umum digunakan di Jekyll) ✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Contoh SCSS:</p>
+
+<p>```scss
+$primary: #1abc9c;</p>
+
+<p>body {
+  background: $primary;</p>
+
+<p>h1 {
+    font-size: 2rem;
+    color: white;
+  }
+}</p>
+
+<p>🗂️ Struktur Folder SCSS Jekyll
+text
+Copy
+Edit
+.
+├── _sass/              ← Partial SCSS (modular)
+│   └── _variables.scss
+├── assets/
+│   └── css/
+│       └── main.scss   ← File utama
+Semua partial SCSS (awalan _) diletakkan di folder _sass.</p>
+
+<p>File main.scss di-compile otomatis oleh Jekyll menjadi main.css.</p>
+
+<p>🛠️ Langkah Menggunakan SCSS
+1️⃣ Buat partial di _sass/_variables.scss
+scss
+Copy
+Edit
+$bg-color: #222;
+$text-color: #f4f4f4;
+2️⃣ Buat file assets/css/main.scss
+scss
+Copy
+Edit
+—
+—</p>
+
+<p>@import “variables”;</p>
+
+<p>body {
+  background: $bg-color;
+  color: $text-color;
+}
+Wajib ada — di awal file agar diproses oleh Jekyll.</p>
+
+<p>3️⃣ Tambahkan di layout HTML (_layouts/default.html atau lainnya)
+html
+Copy
+Edit</p>
+<link rel="stylesheet" href="/assets/css/main.css" />
+
+<p>⚙️ Pengaturan Output CSS (_config.yml)
+yaml
+Copy
+Edit
+sass:
+  style: compressed  # atau nested | expanded | compact
+compressed: CSS jadi 1 baris (untuk produksi)</p>
+
+<p>expanded: CSS rapi dan mudah dibaca (untuk dev)</p>
+
+<p>💎 Tips Pro SCSS
+✅ Gunakan Partial Modular: Pisahkan style per komponen/layout
+✅ Gunakan Variabel: Warna, ukuran font, spacing
+✅ Gunakan Mixin: Buat fungsi SCSS reusable
+✅ Gunakan Nested Selector: Untuk struktur CSS yang bersih</p>
+
+<p>✅ Kesimpulan
+🔧 SCSS di Jekyll memberi Anda kekuatan lebih untuk mengelola tampilan situs.
+📁 Struktur _sass/ dan main.scss membuat style lebih modular.
+🚀 Tidak butuh plugin tambahan — cukup struktur dan konfigurasi rapi!</p>
+
+<p>Dengan SCSS, situs statis Anda jadi tampil lebih dinamis dan profesional!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Jekyll mendukung SASS/SCSS secara built-in, memungkinkan Anda membuat style yang modular, rapi, dan mudah dirawat.]]></summary></entry><entry><title type="html">🚀 Panduan Lengkap Instalasi Ruby, Jekyll &amp;amp; GitHub Pages</title><link href="http://localhost:4000/2025/02/20/Instalasi-ruby-dan-Jekyll.html" rel="alternate" type="text/html" title="🚀 Panduan Lengkap Instalasi Ruby, Jekyll &amp;amp; GitHub Pages" /><published>2025-02-20T00:00:00+07:00</published><updated>2025-02-20T00:00:00+07:00</updated><id>http://localhost:4000/2025/02/20/Instalasi-ruby-dan-Jekyll</id><content type="html" xml:base="http://localhost:4000/2025/02/20/Instalasi-ruby-dan-Jekyll.html"><![CDATA[<blockquote>
+  <p>📘 <em>Panduan step-by-step membuat personal website statis menggunakan Ruby, Jekyll, dan GitHub Pages. Ideal untuk pemula dan menengah.</em></p>
+</blockquote>
+
+<hr />
+
+<h2 id="-1-persiapan-awal">🧰 1. Persiapan Awal</h2>
+
+<h3 id="-cek-ruby">✅ Cek Ruby</h3>
+<ol>
+  <li><strong>Cek apakah Ruby sudah terpasang</strong><br />
+Buka terminal atau Command Prompt, lalu ketik:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby <span class="nt">-v</span>
+</code></pre></div>    </div>
+    <p>Jika Ruby sudah terpasang, maka akan muncul versi Ruby. Jika belum, ikuti langkah berikutnya.</p>
+  </li>
+  <li><strong>Cek RubyGems</strong><br />
+Ketik perintah berikut:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nt">-v</span>
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Cek GCC dan Make</strong><br />
+Ketik perintah berikut:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc <span class="nt">-v</span>
+g++ <span class="nt">-v</span>
+make <span class="nt">-v</span>
+</code></pre></div>    </div>
+    <p>Jika belum tersedia, install melalui:</p>
+  </li>
+</ol>
+
+<p>🟦 MinGW</p>
+
+<p>🐧 sudo apt install build-essential (Linux)</p>
+
+<p><strong>Download Ruby Installer</strong></p>
+<ul>
+  <li>Buka link berikut: <a href="https://rubyinstaller.org">https://rubyinstaller.org</a></li>
+  <li>Pilih versi <strong>Ruby 2.7.0</strong> atau lebih tinggi.</li>
+  <li>Ikuti instruksi instalasi hingga selesai.</li>
+</ul>
+
+<p>✅ Install Jekyll &amp; Bundler
+bash
+Copy
+Edit
+gem install jekyll bundler</p>
+
+<hr />
+
+<p>🛠️ Install Pendukung
+💡 Git (Version Control)
+bash
+Copy
+Edit
+git –version
+🔗 Download Git lalu install sesuai OS kamu.</p>
+
+<hr />
+
+<p>🧑‍💻 VSCode (Text Editor)
+🔗 Download VSCode</p>
+
+<hr />
+
+<p>🌐 Google Chrome (Browser)
+🔗 Download Chrome</p>
+
+<hr />
+
+<p>Chrome</p>
+
+<p>🌍 Siapkan GitHub &amp; Repository
+🐙 Buat Akun GitHub
+🔗 github.com</p>
+
+<hr />
+
+<p>🧱 Buat Repository Baru
+Gunakan format: username.github.io
+Contoh: faiza.github.io</p>
+
+<hr />
+
+<p>💻 Mulai Proyek Jekyll
+🔁 Clone Repo GitHub
+bash
+Copy
+Edit
+git clone https://github.com/username/username.github.io.git
+cd username.github.io</p>
+
+<hr />
+
+<p>📦 Inisialisasi Bundler
+bash
+Copy
+Edit
+bundle init
+Perintah ini akan membuat file <code class="language-plaintext highlighter-rouge">Gemfile</code> di dalam folder proyek.</p>
+
+<hr />
+
+<p>✏️ Edit Gemfile
+Tambahkan:</p>
+
+<p>ruby
+Copy
+Edit
+source “https://rubygems.org”
+gem “jekyll”
+Install:</p>
+
+<p>bash
+Copy
+Edit
+bundle install</p>
+
+<hr />
+
+<p>📄 Buat index.html
+html
+Copy
+Edit
+&lt;!DOCTYPE html&gt;</p>
+<html>
+  <head>
+    <title>My Jekyll Site</title>
+  </head>
+  <body>
+    <h1>Hello World from Jekyll 👋</h1>
+    <p>This is a simple personal site powered by Jekyll and GitHub Pages.</p>
+  </body>
+</html>
+
+<hr />
+
+<p>🔧 Jalankan Jekyll Secara Lokal
+🔨 Build
+bash
+Copy
+Edit
+jekyll build
+🚀 Jalankan Server
+bash
+Copy
+Edit
+jekyll serve
+Buka di browser:
+📡 http://localhost:4000</p>
+
+<p>💡 Live reload:</p>
+
+<p>bash
+Copy
+Edit
+jekyll serve –livereload</p>
+
+<hr />
+
+<p>🐧 6. Linux Tips (Optional)
+Edit Gemfile.lock
+Tambahkan:</p>
+
+<p>nginx
+Copy
+Edit
+PLATFORMS
+  ruby
+  x86_64-linux</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+---
+
+⬆️ Push ke GitHub
+bash
+Copy
+Edit
+git add .
+git commit -m "Initial Jekyll site"
+git push origin main    
+
+---
+
+⚙️ 8. Otomatisasi dengan GitHub Actions
+Buat folder dan file:
+
+bash
+Copy
+Edit
+mkdir -p .github/workflows
+touch .github/workflows/jekyll.yml
+Isi file jekyll.yml:
+
+yaml
+Copy
+Edit
+name: Jekyll Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site
+        run: JEKYLL_ENV=production bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: $
+          publish_dir: ./_site
+Push kembali:
+
+bash
+Copy
+Edit
+git add .
+git commit -m "Add CI/CD GitHub Actions"
+git push origin main    
+
+---
+
+🌐 9. Selesai!
+✅ Website kamu siap diakses via:
+
+bash
+Copy
+Edit
+https://username.github.io
+
+---
+
+🛠️ Troubleshooting
+
+Masalah	Solusi
+❌ Port Konflik	jekyll serve --host 0.0.0.0 --port 4001
+❌ Build gagal	Pastikan Ruby dan Bundler sudah terpasang
+❌ GitHub Pages kosong	Pastikan branch utama: main
+</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[📘 Panduan step-by-step membuat personal website statis menggunakan Ruby, Jekyll, dan GitHub Pages. Ideal untuk pemula dan menengah.]]></summary></entry></feed>

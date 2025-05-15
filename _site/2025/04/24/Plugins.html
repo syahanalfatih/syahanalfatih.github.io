@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔌 Panduan Lengkap Plugin di Jekyll</title>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/assets/images/favicon.icn">
+
+    <!-- JavaScript -->
+      <script src="/assets/js/script.js"></script>
+
+    <!-- plugins -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>🔌 Panduan Lengkap Plugin di Jekyll | Home</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="🔌 Panduan Lengkap Plugin di Jekyll" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri." />
+<meta property="og:description" content="Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri." />
+<link rel="canonical" href="http://localhost:4000/2025/04/24/Plugins.html" />
+<meta property="og:url" content="http://localhost:4000/2025/04/24/Plugins.html" />
+<meta property="og:site_name" content="Home" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-24T00:00:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="🔌 Panduan Lengkap Plugin di Jekyll" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-04-24T00:00:00+07:00","datePublished":"2025-04-24T00:00:00+07:00","description":"Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri.","headline":"🔌 Panduan Lengkap Plugin di Jekyll","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/04/24/Plugins.html"},"url":"http://localhost:4000/2025/04/24/Plugins.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+<body>
+    <nav>
+  
+   <a href="/" >Home</a>
+   
+   <a href="/friends.html" >Friends</a>
+   
+   <a href="/blog.html" >Blog</a>
+   
+</nav>
+    <main class="blog-container">
+  <h1 class="blog-post-title">🔌 Panduan Lengkap Plugin di Jekyll</h1>
+  <p>24 Apr 2025 </p>
+
+  <p>Plugin adalah salah satu kekuatan terbesar Jekyll. Dengan plugin, kamu bisa menambahkan fitur seperti sitemap otomatis, SEO tag, pagination, bahkan membuat plugin kustom sendiri.</p>
+
+<hr />
+
+<h2 id="-apa-itu-plugin-jekyll">❓ Apa Itu Plugin Jekyll?</h2>
+
+<p><strong>Plugin Jekyll</strong> adalah ekstensi Ruby yang berjalan saat proses build. Fungsinya antara lain:</p>
+
+<ul>
+  <li>🔧 Menambah tag dan filter Liquid</li>
+  <li>📄 Membuat konten otomatis (seperti <code class="language-plaintext highlighter-rouge">sitemap.xml</code>)</li>
+  <li>🚀 Mengoptimalkan performa dan SEO situs</li>
+  <li>🔗 Integrasi layanan eksternal (RSS, analytics, dll)</li>
+</ul>
+
+<hr />
+
+<h2 id="️-cara-mengaktifkan-plugin">⚙️ Cara Mengaktifkan Plugin</h2>
+
+<p>Tambahkan nama plugin ke dalam file <code class="language-plaintext highlighter-rouge">_config.yml</code> seperti berikut:</p>
+
+<p>```yml
+plugins:</p>
+<ul>
+  <li>jekyll-sitemap</li>
+  <li>jekyll-feed</li>
+  <li>jekyll-seo-tag</li>
+</ul>
+
+<p>💡 Pastikan plugin yang ditambahkan sudah di-install di proyek (lihat langkah berikut).</p>
+
+<p>📦 Cara Instal Plugin</p>
+<ol>
+  <li>Tambahkan ke Gemfile
+ruby
+Copy
+Edit
+gem “jekyll-sitemap”
+gem “jekyll-feed”
+gem “jekyll-seo-tag”</li>
+  <li>Jalankan instalasi dengan Bundler
+bash
+Copy
+Edit
+bundle install</li>
+  <li>Tambahkan juga ke _config.yml (jika belum)
+📌 Catatan: Jika menggunakan GitHub Pages, hanya plugin tertentu yang diizinkan. Lihat daftar plugin resmi GitHub Pages.</li>
+</ol>
+
+<p>🌟 Plugin Jekyll Populer
+Plugin	Fungsi
+jekyll-sitemap	Membuat file sitemap.xml otomatis
+jekyll-feed	Membuat RSS feed dari postingan
+jekyll-seo-tag	Menambahkan meta tag SEO ke halaman dan postingan
+jekyll-paginate	Menyediakan fitur pagination (halaman blog terbagi)
+jekyll-archives	Menyediakan arsip berdasarkan kategori, tag, atau tanggal</p>
+
+<p>🔧 Membuat Plugin Kustom
+Kamu bisa membuat plugin sendiri untuk kebutuhan unik.</p>
+
+<p>Langkah:
+Buat folder: _plugins/</p>
+
+<p>Buat file Ruby di dalamnya, contoh hello.rb:</p>
+
+<p>ruby
+Copy
+Edit
+module Jekyll
+  class HelloTag &lt; Liquid::Tag
+    def render(context)
+      “Halo dari plugin Jekyll!”
+    end
+  end
+end</p>
+
+<p>Liquid::Template.register_tag(‘hello’, Jekyll::HelloTag)
+Gunakan dalam post:</p>
+
+<p>liquid
+Copy
+Edit
+{ Hello %}</p>
+
+<p>🚫 Plugin &amp; GitHub Pages
+GitHub Pages membatasi plugin karena alasan keamanan.</p>
+
+<p>Solusi jika plugin tidak didukung:
+✅ Build situs secara lokal, lalu push hasil _site/ ke GitHub</p>
+
+<p>🚀 Gunakan GitHub Actions untuk build otomatis</p>
+
+<p>☁️ Deploy ke layanan lain seperti Netlify, Vercel, atau Cloudflare Pages</p>
+
+<p>✅ Kesimpulan
+Plugin Jekyll membuat situs lebih dinamis, fleksibel, dan powerful</p>
+
+<p>Tambahkan plugin ke Gemfile dan _config.yml</p>
+
+<p>Bisa bikin plugin sendiri untuk kebutuhan khusus</p>
+
+<p>Hati-hati dengan batasan GitHub Pages: build lokal atau deploy ke layanan lain</p>
+
+
+</main>
+</body>
+</html>

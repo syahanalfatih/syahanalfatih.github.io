@@ -1,9 +1,8 @@
 ---
-layout: post
+layout: posts
 title: "🔗 HTML Link & 📋 Lists"
 ---
 
-# 🔗 **HTML Link & 📋 Lists**
 
 > 📘 *Pelajari cara membuat tautan (link) dan daftar (lists) di HTML untuk membangun struktur konten yang rapi dan interaktif.*.
 

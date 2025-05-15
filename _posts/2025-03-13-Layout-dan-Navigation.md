@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: "🎨 Layout & 🔀 Navigasi: Desain Antarmuka yang Efektif"
 ---
 
